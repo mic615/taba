@@ -144,7 +144,7 @@
             this.coords.latitude = position.coords.latitude;
             this.coords.longitude = position.coords.longitude;
             this.markers.push({
-              position:{lat:this.coords.latitude,long:this.coords.longitude}
+              position:{lat:position.coords.latitude,long:position.coords.longitude}
             });
             $("#atmModal").modal();
           },
@@ -159,7 +159,7 @@
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 100%;
+        height: 80%;
       }
 
     </style>
