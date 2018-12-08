@@ -47,7 +47,7 @@
                   Latitude: {{coords.latitude}}
                 <br>
                   Longitude: {{coords.longitude}}
-                  <img :src="img_url">
+                  <div id="map"></div>
               </p>
               </div>
               <div class="modal-footer">
@@ -129,9 +129,10 @@
             this.coords.latitude = position.coords.latitude;
             this.coords.longitude = position.coords.longitude;
             var latlon = position.coords.latitude + "," + position.coords.longitude;
-
-            this.img_url = "https://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=400x300&sensor=false&key=AIzaSyBCO3FH3KhXknQBIfUmk3dgYGsJSou1mSE";
-            console.log(this.img_url);
+            map = new google.maps.Map(document.getElementById('map'), {
+              center: {lat: this.coords.latitude, lng: this.coords.longitude},
+              zoom: 8
+            });
             $("#atmModal").modal();
           },
           planTripModal: function(){

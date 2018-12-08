@@ -47659,9 +47659,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.coords.latitude = position.coords.latitude;
       this.coords.longitude = position.coords.longitude;
       var latlon = position.coords.latitude + "," + position.coords.longitude;
-
-      this.img_url = "https://maps.googleapis.com/maps/api/staticmap?center=" + latlon + "&zoom=14&size=400x300&sensor=false&key=AIzaSyBCO3FH3KhXknQBIfUmk3dgYGsJSou1mSE";
-      console.log(this.img_url);
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: this.coords.latitude, lng: this.coords.longitude },
+        zoom: 8
+      });
       $("#atmModal").modal();
     },
     planTripModal: function planTripModal() {
@@ -47723,9 +47724,11 @@ var render = function() {
                   "\n                  Longitude: " +
                     _vm._s(_vm.coords.longitude) +
                     "\n                  "
-                ),
-                _c("img", { attrs: { src: _vm.img_url } })
-              ])
+                )
+              ]),
+              _c("div", { attrs: { id: "map" } }),
+              _vm._v(" "),
+              _c("p")
             ]),
             _vm._v(" "),
             _vm._m(2)
