@@ -15,6 +15,15 @@ class CreateTripsTable extends Migration
     {
         Schema::create('trips', function (Blueprint $table) {
             $table->increments('id');
+            $table->dateTime('start_date');
+            $table->dateTime('end_date');
+            $table->decimal('budget',8,2);
+            $table->string('city');
+            $table->string('state');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')
+              ->references('id')->on('users')
+              ->onDelete('cascade');
             $table->timestamps();
         });
     }
