@@ -47565,10 +47565,42 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
+  },
+  data: function data() {
+    return {
+      coords: {
+        latitude: '',
+        longitude: ''
+      }
+    };
   },
 
   methods: {
@@ -47595,6 +47627,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             case 'plan a trip':
               $("#tripModal").modal();
               break;
+            case 'find an atm near me':
+              this.getLocation();
+              break;
           }
         };
 
@@ -47602,6 +47637,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           recognition.stop();
         };
       }
+    },
+    getLocation: function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(this.showPosition);
+      } else {
+        alert('Error!');
+      }
+    },
+
+    showPosition: function showPosition(position) {
+
+      this.coords.latitude = position.coords.latitude;
+      this.coords.longitude = position.coords.longitude;
+      $("#atmModal").modal();
     }
   }
 });
@@ -47636,7 +47685,37 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _vm._m(0)
+    _vm._m(0),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "modal fade", attrs: { id: "tripModal", role: "dialog" } },
+      [
+        _c("div", { staticClass: "modal-dialog" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-body" }, [
+              _c("p", [
+                _vm._v(
+                  "\n                  Latitude: " +
+                    _vm._s(_vm.coords.latitude) +
+                    "\n                "
+                ),
+                _c("br"),
+                _vm._v(
+                  "\n                  Longitude: " +
+                    _vm._s(_vm.coords.longitude) +
+                    "\n              "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(2)
+          ])
+        ])
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -47646,7 +47725,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c(
       "div",
-      { staticClass: "modal fade", attrs: { id: "tripModal", role: "dialog" } },
+      { staticClass: "modal fade", attrs: { id: "atmModal", role: "dialog" } },
       [
         _c("div", { staticClass: "modal-dialog" }, [
           _c("div", { staticClass: "modal-content" }, [
@@ -47683,6 +47762,38 @@ var staticRenderFns = [
         ])
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("×")]
+      ),
+      _vm._v(" "),
+      _c("h4", { staticClass: "modal-title" }, [_vm._v("ATM Locator")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-default",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("Close")]
+      )
+    ])
   }
 ]
 render._withStripped = true

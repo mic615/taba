@@ -13,7 +13,7 @@
             </div>
         </div>
         <!-- Modal -->
-        <div id="tripModal" class="modal fade" role="dialog">
+        <div id="atmModal" class="modal fade" role="dialog">
           <div class="modal-dialog">
 
             <!-- Modal content-->
@@ -32,6 +32,30 @@
 
           </div>
         </div>
+        <!-- Modal -->
+        <div id="tripModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">ATM Locator</h4>
+              </div>
+              <div class="modal-body">
+                <p>
+                  Latitude: {{coords.latitude}}
+                <br>
+                  Longitude: {{coords.longitude}}
+              </p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
     </div>
 </template>
 
@@ -39,6 +63,14 @@
     export default {
         mounted() {
             console.log('Component mounted.')
+        },
+        data(){
+          return{
+            coords: {
+            latitude: '',
+            longitude: ''
+          }
+          }
         },
         methods:{
           startDiction: function(){
@@ -64,6 +96,9 @@
                   case 'plan a trip':
                    $("#tripModal").modal();
                    break;
+                   case 'find an atm near me':
+                   this.getLocation();
+                   break;
                 }
               };
 
@@ -72,6 +107,20 @@
               }
 
             }
+          },
+          getLocation: function() {
+            if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(this.showPosition);
+            } else {
+              alert('Error!');
+            }
+          },
+
+          showPosition: function(position) {
+
+            this.coords.latitude = position.coords.latitude;
+            this.coords.longitude = position.coords.longitude;
+            $("#atmModal").modal();
           }
         }
     }
