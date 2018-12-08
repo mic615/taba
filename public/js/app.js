@@ -47628,7 +47628,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             case 'plan a trip':
               this.planTripModal();
               break;
-            case 'find an atm':
+            case 'find an ATM':
               this.getLocation();
               break;
             default:

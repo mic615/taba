@@ -97,7 +97,7 @@
                   case 'plan a trip':
                    this.planTripModal();
                    break;
-                   case 'find an atm':
+                   case 'find an ATM':
                    this.getLocation();
                    break;
                    default:
