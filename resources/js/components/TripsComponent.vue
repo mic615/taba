@@ -53,6 +53,14 @@
                   map-type-id="terrain"
                   style="width: 500px; height: 300px"
                 >
+                <GmapMarker
+                :key="index"
+                v-for="(m, index) in markers"
+                :position="m.position"
+                :clickable="true"
+                :draggable="true"
+                @click="center=m.position"
+              />
 
                 </GmapMap>
               </p>
@@ -78,7 +86,7 @@
             latitude: 0.00,
             longitude: 0.00,
           },
-          img_url: ''
+          markers: []
           }
         },
         methods:{
@@ -135,7 +143,9 @@
             var map;
             this.coords.latitude = position.coords.latitude;
             this.coords.longitude = position.coords.longitude;
-
+            this.markers.push({
+              position:{lat:this.coords.latitude,long:this.coords.longitude}
+            });
             $("#atmModal").modal();
           },
           planTripModal: function(){

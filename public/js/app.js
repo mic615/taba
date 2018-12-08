@@ -47630,6 +47630,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -47641,7 +47649,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         latitude: 0.00,
         longitude: 0.00
       },
-      img_url: ''
+      markers: []
     };
   },
 
@@ -47698,7 +47706,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var map;
       this.coords.latitude = position.coords.latitude;
       this.coords.longitude = position.coords.longitude;
-
+      this.markers.push({
+        position: { lat: this.coords.latitude, long: this.coords.longitude }
+      });
       $("#atmModal").modal();
     },
     planTripModal: function planTripModal() {
@@ -47763,17 +47773,36 @@ var render = function() {
                       _vm._s(_vm.coords.longitude) +
                       "\n                  "
                   ),
-                  _c("GmapMap", {
-                    staticStyle: { width: "500px", height: "300px" },
-                    attrs: {
-                      center: {
-                        lat: _vm.coords.latitude,
-                        lng: _vm.coords.longitude
-                      },
-                      zoom: 7,
-                      "map-type-id": "terrain"
-                    }
-                  })
+                  _c(
+                    "GmapMap",
+                    {
+                      staticStyle: { width: "500px", height: "300px" },
+                      attrs: {
+                        center: {
+                          lat: _vm.coords.latitude,
+                          lng: _vm.coords.longitude
+                        },
+                        zoom: 7,
+                        "map-type-id": "terrain"
+                      }
+                    },
+                    _vm._l(_vm.markers, function(m, index) {
+                      return _c("GmapMarker", {
+                        key: index,
+                        attrs: {
+                          position: m.position,
+                          clickable: true,
+                          draggable: true
+                        },
+                        on: {
+                          click: function($event) {
+                            _vm.center = m.position
+                          }
+                        }
+                      })
+                    }),
+                    1
+                  )
                 ],
                 1
               )
@@ -47999,7 +48028,7 @@ exports = module.exports = __webpack_require__(45)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n      /* Always set the map height explicitly to define the size of the div\n       * element that contains the map. */\n#map {\n        height: 100%;\n}\n\n    ", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n      /* Always set the map height explicitly to define the size of the div\n       * element that contains the map. */\n#map {\n        height: 100%;\n}\n\n    ", ""]);
 
 // exports
 
