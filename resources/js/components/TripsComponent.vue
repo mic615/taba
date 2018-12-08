@@ -53,7 +53,7 @@
                   map-type-id="terrain"
                   style="width: 500px; height: 300px"
                 >
-                
+
                 </GmapMap>
               </p>
               </div>
@@ -75,8 +75,8 @@
         data(){
           return{
             coords: {
-            latitude: '',
-            longitude: '',
+            latitude: 0.00,
+            longitude: 0.00,
           },
           img_url: ''
           }
@@ -135,11 +135,7 @@
             var map;
             this.coords.latitude = position.coords.latitude;
             this.coords.longitude = position.coords.longitude;
-            var latlon = position.coords.latitude + "," + position.coords.longitude;
-            map = new google.maps.Map(document.getElementById('map'), {
-              center: {lat: this.coords.latitude, lng: this.coords.longitude},
-              zoom: 8
-            });
+
             $("#atmModal").modal();
           },
           planTripModal: function(){
