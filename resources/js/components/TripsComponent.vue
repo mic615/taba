@@ -12,6 +12,26 @@
                 </div>
             </div>
         </div>
+        <!-- Modal -->
+        <div id="tripModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Plan A New Trip</h4>
+              </div>
+              <div class="modal-body">
+                <p>Some text in the modal.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
     </div>
 </template>
 
@@ -40,7 +60,11 @@
               recognition.onresult = function(e) {
                 var results = e.results[0][0].transcript;
                 recognition.stop();
-                console.log(results)
+                switch(results){
+                  case 'plan a trip':
+                   $("#tripModal").modal();
+                   break;
+                }
               };
 
               recognition.onerror = function(e) {
