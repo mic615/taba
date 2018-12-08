@@ -47619,17 +47619,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         recognition.lang = "en-US";
         recognition.start();
-
+        var that = this;
         recognition.onresult = function (e) {
           var results = e.results[0][0].transcript;
           recognition.stop();
           console.log('Results', results);
           switch (results) {
             case 'plan a trip':
-              this.planTripModal();
+              that.planTripModal();
               break;
             case 'find an ATM':
-              this.getLocation();
+              that.getLocation();
               break;
             default:
               alert('Cannot recognize command!');
