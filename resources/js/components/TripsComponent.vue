@@ -125,7 +125,7 @@
           },
 
           showPosition: function(position) {
-
+            var map;
             this.coords.latitude = position.coords.latitude;
             this.coords.longitude = position.coords.longitude;
             var latlon = position.coords.latitude + "," + position.coords.longitude;

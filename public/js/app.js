@@ -47655,7 +47655,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     showPosition: function showPosition(position) {
-
+      var map;
       this.coords.latitude = position.coords.latitude;
       this.coords.longitude = position.coords.longitude;
       var latlon = position.coords.latitude + "," + position.coords.longitude;
