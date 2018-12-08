@@ -47599,9 +47599,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {
       coords: {
         latitude: '',
-        longitude: '',
-        img_url: ''
-      }
+        longitude: ''
+      },
+      img_url: ''
     };
   },
 

@@ -70,8 +70,8 @@
             coords: {
             latitude: '',
             longitude: '',
-            img_url: ''
-          }
+          },
+          img_url: ''
           }
         },
         methods:{
