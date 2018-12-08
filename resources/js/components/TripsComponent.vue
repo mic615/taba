@@ -92,12 +92,16 @@
               recognition.onresult = function(e) {
                 var results = e.results[0][0].transcript;
                 recognition.stop();
+                console.log('Results',results);
                 switch(results){
                   case 'plan a trip':
                    $("#tripModal").modal();
                    break;
-                   case 'find an atm near me':
+                   case 'find an atm':
                    this.getLocation();
+                   break;
+                   default:
+                   alert('Cannot recognize command!')
                    break;
                 }
               };
