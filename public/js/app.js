@@ -47563,6 +47563,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         recognition.grammars = speechRecognitionList;
         recognition.continuous = false;
         recognition.interimResults = false;
+        console.log('Grammars', recognition.grammars);
 
         recognition.lang = "en-US";
         recognition.start();

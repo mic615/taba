@@ -32,6 +32,7 @@
               recognition.grammars = speechRecognitionList;
               recognition.continuous = false;
               recognition.interimResults = false;
+              console.log('Grammars',recognition.grammars);
 
               recognition.lang = "en-US";
               recognition.start();
