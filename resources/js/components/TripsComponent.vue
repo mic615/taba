@@ -134,6 +134,7 @@
             var latlon = position.coords.latitude + "," + position.coords.longitude;
 
             this.img_url = "https://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=400x300&sensor=false&key=AIzaSyBCO3FH3KhXknQBIfUmk3dgYGsJSou1mSE";
+            console.log(this.img_url);
             $("#tripModal").modal();
           },
         }
