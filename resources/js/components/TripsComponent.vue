@@ -7,7 +7,7 @@
 
                     <div class="card-body">
                         <button class="btn btn-sm">New Trip</button>
-                        <button class="btn btn-sm btn-success" :click="startDiction">Speak Command</button>
+                        <button class="btn btn-sm btn-success" v-on:click="startDiction">Speak Command</button>
                     </div>
                 </div>
             </div>
@@ -22,9 +22,9 @@
         },
         methods:{
           startDiction: function(){
-              if (window.hasOwnProperty('webkitSpeechRecognition')) {
+              if (window.hasOwnProperty('webkitSpeechRecognition') || window.hasOwnProperty('SpeechRecognition')) {
 
-              var recognition = new webkitSpeechRecognition();
+              var recognition = new webkitSpeechRecognition() || new SpeechRecognition();
 
               recognition.continuous = false;
               recognition.interimResults = false;

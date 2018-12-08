@@ -47553,9 +47553,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   methods: {
     startDiction: function startDiction() {
-      if (window.hasOwnProperty('webkitSpeechRecognition')) {
+      if (window.hasOwnProperty('webkitSpeechRecognition') || window.hasOwnProperty('SpeechRecognition')) {
 
-        var recognition = new webkitSpeechRecognition();
+        var recognition = new webkitSpeechRecognition() || new SpeechRecognition();
 
         recognition.continuous = false;
         recognition.interimResults = false;
@@ -47598,7 +47598,7 @@ var render = function() {
               "button",
               {
                 staticClass: "btn btn-sm btn-success",
-                attrs: { click: _vm.startDiction }
+                on: { click: _vm.startDiction }
               },
               [_vm._v("Speak Command")]
             )
