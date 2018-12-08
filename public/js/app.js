@@ -47566,7 +47566,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         recognition.onresult = function (e) {
           var results = e.results[0][0].transcript;
           recognition.stop();
-          console.log(results[0]);
+          console.log(results);
         };
 
         recognition.onerror = function (e) {
