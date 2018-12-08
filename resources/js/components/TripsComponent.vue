@@ -112,9 +112,7 @@
 
             }
           },
-          planTripModal: function(){
-            $("#tripModal").modal();
-          },
+
           getLocation: function() {
             console.log('Getting location....')
             if (navigator.geolocation) {
@@ -129,7 +127,10 @@
             this.coords.latitude = position.coords.latitude;
             this.coords.longitude = position.coords.longitude;
             $("#atmModal").modal();
-          }
+          },
+          planTripModal: function(){
+            $("#tripModal").modal();
+          },
         }
     }
 </script>

@@ -47642,9 +47642,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
       }
     },
-    planTripModal: function planTripModal() {
-      $("#tripModal").modal();
-    },
+
     getLocation: function getLocation() {
       console.log('Getting location....');
       if (navigator.geolocation) {
@@ -47659,6 +47657,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.coords.latitude = position.coords.latitude;
       this.coords.longitude = position.coords.longitude;
       $("#atmModal").modal();
+    },
+    planTripModal: function planTripModal() {
+      $("#tripModal").modal();
     }
   }
 });
