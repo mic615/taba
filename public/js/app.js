@@ -47589,6 +47589,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -47598,7 +47599,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {
       coords: {
         latitude: '',
-        longitude: ''
+        longitude: '',
+        img_url: ''
       }
     };
   },
@@ -47659,6 +47661,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       $("#atmModal").modal();
     },
     planTripModal: function planTripModal() {
+      var latlon = position.coords.latitude + "," + position.coords.longitude;
+
+      this.img_url = "https://maps.googleapis.com/maps/api/staticmap?center=" + latlon + "&zoom=14&size=400x300&sensor=false&key=AIzaSyBCO3FH3KhXknQBIfUmk3dgYGsJSou1mSE";
       $("#tripModal").modal();
     }
   }
@@ -47715,8 +47720,9 @@ var render = function() {
                 _vm._v(
                   "\n                  Longitude: " +
                     _vm._s(_vm.coords.longitude) +
-                    "\n              "
-                )
+                    "\n                  "
+                ),
+                _c("img", { attrs: { src: _vm.img_url } })
               ])
             ]),
             _vm._v(" "),

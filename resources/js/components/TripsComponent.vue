@@ -47,6 +47,7 @@
                   Latitude: {{coords.latitude}}
                 <br>
                   Longitude: {{coords.longitude}}
+                  <img :src="img_url">
               </p>
               </div>
               <div class="modal-footer">
@@ -68,7 +69,8 @@
           return{
             coords: {
             latitude: '',
-            longitude: ''
+            longitude: '',
+            img_url: ''
           }
           }
         },
@@ -129,6 +131,9 @@
             $("#atmModal").modal();
           },
           planTripModal: function(){
+            var latlon = position.coords.latitude + "," + position.coords.longitude;
+
+            this.img_url = "https://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=400x300&sensor=false&key=AIzaSyBCO3FH3KhXknQBIfUmk3dgYGsJSou1mSE";
             $("#tripModal").modal();
           },
         }
