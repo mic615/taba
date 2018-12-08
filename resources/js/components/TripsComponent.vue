@@ -95,7 +95,7 @@
                 console.log('Results',results);
                 switch(results){
                   case 'plan a trip':
-                   $("#tripModal").modal();
+                   this.planTripModal();
                    break;
                    case 'find an atm':
                    this.getLocation();
@@ -111,6 +111,9 @@
               }
 
             }
+          },
+          planTripModal: function(){
+            $("#tripModal").modal();
           },
           getLocation: function() {
             console.log('Getting location....')

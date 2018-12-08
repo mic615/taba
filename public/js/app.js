@@ -47626,7 +47626,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           console.log('Results', results);
           switch (results) {
             case 'plan a trip':
-              $("#tripModal").modal();
+              this.planTripModal();
               break;
             case 'find an atm':
               this.getLocation();
@@ -47641,6 +47641,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           recognition.stop();
         };
       }
+    },
+    planTripModal: function planTripModal() {
+      $("#tripModal").modal();
     },
     getLocation: function getLocation() {
       console.log('Getting location....');
