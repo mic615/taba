@@ -47558,7 +47558,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       if (window.hasOwnProperty('webkitSpeechRecognition') || window.hasOwnProperty('SpeechRecognition')) {
 
         var recognition = new webkitSpeechRecognition() || new SpeechRecognition();
-        var speechRecognitionList = new SpeechGrammarList() || new webkitSpeechGrammarList();
+        var speechRecognitionList = new webkitSpeechGrammarList();
         speechRecognitionList.addFromString(grammar, 1);
         recognition.grammars = speechRecognitionList;
         recognition.continuous = false;
