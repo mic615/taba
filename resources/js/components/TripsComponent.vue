@@ -74,7 +74,7 @@
         },
         methods:{
           startDiction: function(){
-            var commands = [ 'plan a trip' , 'show me my trips' , 'find an atm', 'show my transactions', 'what is my balance'];
+            var commands = [ 'plan a trip' , 'show me my trips' , 'find an ATM', 'show my transactions', 'what is my balance'];
             var grammar = '#JSGF V1.0; grammar colors; public <command> = ' + commands.join(' | ') + ' ;'
               if (window.hasOwnProperty('webkitSpeechRecognition') || window.hasOwnProperty('SpeechRecognition')) {
 
