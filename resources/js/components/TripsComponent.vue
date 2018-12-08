@@ -22,10 +22,14 @@
         },
         methods:{
           startDiction: function(){
+            var commands = [ 'plan a trip' , 'show me my trips' , 'find an atm near me', 'show my transactions', 'what is my balance'];
+            var grammar = '#JSGF V1.0; grammar colors; public <command> = ' + commands.join(' | ') + ' ;'
               if (window.hasOwnProperty('webkitSpeechRecognition') || window.hasOwnProperty('SpeechRecognition')) {
 
               var recognition = new webkitSpeechRecognition() || new SpeechRecognition();
-
+              var speechRecognitionList = new SpeechGrammarList();
+              speechRecognitionList.addFromString(grammar, 1);
+              recognition.grammars = speechRecognitionList;
               recognition.continuous = false;
               recognition.interimResults = false;
 
