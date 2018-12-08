@@ -27,7 +27,7 @@
               if (window.hasOwnProperty('webkitSpeechRecognition') || window.hasOwnProperty('SpeechRecognition')) {
 
               var recognition = new webkitSpeechRecognition() || new SpeechRecognition();
-              var speechRecognitionList = new SpeechGrammarList();
+              var speechRecognitionList = new SpeechGrammarList() || new webkitSpeechGrammarList();
               speechRecognitionList.addFromString(grammar, 1);
               recognition.grammars = speechRecognitionList;
               recognition.continuous = false;
