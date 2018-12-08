@@ -13,7 +13,7 @@
             </div>
         </div>
         <!-- Modal -->
-        <div id="atmModal" class="modal fade" role="dialog">
+        <div id="tripModal" class="modal fade" role="dialog">
           <div class="modal-dialog">
 
             <!-- Modal content-->
@@ -33,7 +33,7 @@
           </div>
         </div>
         <!-- Modal -->
-        <div id="tripModal" class="modal fade" role="dialog">
+        <div id="atmModal" class="modal fade" role="dialog">
           <div class="modal-dialog">
 
             <!-- Modal content-->
