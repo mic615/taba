@@ -47,7 +47,14 @@
                   Latitude: {{coords.latitude}}
                 <br>
                   Longitude: {{coords.longitude}}
-                  <div id="map"></div>
+                  <GmapMap
+                  :center="{lat:coords.latitude, lng:coords.longitude}"
+                  :zoom="7"
+                  map-type-id="terrain"
+                  style="width: 500px; height: 300px"
+                >
+                
+                </GmapMap>
               </p>
               </div>
               <div class="modal-footer">
@@ -148,5 +155,5 @@
       #map {
         height: 100%;
       }
-      
+
     </style>
