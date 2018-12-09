@@ -25,7 +25,7 @@ class ApiController extends Controller
     //     ]
     // ]);
       $accessToken= $responseBody->access_token ;
-      echo $accessToken
+      echo $accessToken;
       return $accessToken;
 
 
