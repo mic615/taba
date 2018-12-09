@@ -30,8 +30,7 @@ class ApiController extends Controller
 
     }
 
-    public function testYelp()
-    {
+    public function testYelp(){
       // API key placeholders that must be filled in by users.
       // You can find it on
       // https://www.yelp.com/developers/v3/manage_app
@@ -81,84 +80,39 @@ class ApiController extends Controller
         return $response;
     }
 
-    public function request($host, $path, $url_params = array()) {
-      /**
-     * Makes a request to the Yelp API and returns the response
-     *
-     * @param    $host    The domain host of the API
-     * @param    $path    The path of the API after the domain.
-     * @param    $url_params    Array of query-string parameters.
-     * @return   The JSON response from the request
-     */
-          // Send Yelp API Call
-          try {
-              $curl = curl_init();
-              if (FALSE === $curl)
-                  throw new Exception('Failed to initialize');
-              $url = $host . $path . "?" . http_build_query($url_params);
-              curl_setopt_array($curl, array(
-                  CURLOPT_URL => $url,
-                  CURLOPT_RETURNTRANSFER => true,  // Capture response.
-                  CURLOPT_ENCODING => "",  // Accept gzip/deflate/whatever.
-                  CURLOPT_MAXREDIRS => 10,
-                  CURLOPT_TIMEOUT => 30,
-                  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                  CURLOPT_CUSTOMREQUEST => "GET",
-                  CURLOPT_HTTPHEADER => array(
-                      "authorization: Bearer " .   env('YELP_API_KEY'],
-                      "cache-control: no-cache",
-                  ),
-              ));
-              $response = curl_exec($curl);
-              if (FALSE === $response)
-                  throw new Exception(curl_error($curl), curl_errno($curl));
-              $http_status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-              if (200 != $http_status)
-                  throw new Exception($response, $http_status);
-              curl_close($curl);
-          } catch(Exception $e) {
-              trigger_error(sprintf(
-                  'Curl failed with error #%d: %s',
-                  $e->getCode(), $e->getMessage()),
-                  E_USER_ERROR);
-          }
-          return $response;
+    public function search($term, $location) {
+      $url_params = array();;
+      $SEARCH_LIMIT = 3;
+      $url_params['term'] = $term;
+      $url_params['location'] = $location;
+      $url_params['limit'] =   env('YELP_SEARCH_LIMIT'];
+
+      return request(  env('YELP_API_HOST'],  env('YELP_SEARCH_PATH'], $url_params);
     }
 
+    public function get_business($business_id) {
 
-    function search($term, $location) {
-    $url_params = array();;
-    $SEARCH_LIMIT = 3;
-    $url_params['term'] = $term;
-    $url_params['location'] = $location;
-    $url_params['limit'] =   env('YELP_SEARCH_LIMIT'];
+      $business_path =   env('YELP_BUSINESS_PATH'] . urlencode($business_id);
 
-    return request(  env('YELP_API_HOST'],  env('YELP_SEARCH_PATH'], $url_params);
-  }
+      return request(  env('YELP_API_HOST'], $business_path);
+    }
 
-    function get_business($business_id) {
+    public function query_api($term, $location) {
+      $response = json_decode(search($term, $location));
+      $business_id = $response->businesses[0]->id;
 
-    $business_path =   env('YELP_BUSINESS_PATH'] . urlencode($business_id);
+      print sprintf(
+          "%d businesses found, querying business info for the top result \"%s\"\n\n",
+          count($response->businesses),
+          $business_id
+        );
 
-    return request(  env('YELP_API_HOST'], $business_path);
-}
+        $response = get_business($business_id);
 
-    function query_api($term, $location) {
-    $response = json_decode(search($term, $location));
-    $business_id = $response->businesses[0]->id;
-
-    print sprintf(
-        "%d businesses found, querying business info for the top result \"%s\"\n\n",
-        count($response->businesses),
-        $business_id
-    );
-
-    $response = get_business($business_id);
-
-    print sprintf("Result for business \"%s\" found:\n", $business_id);
-    $pretty_response = json_encode(json_decode($response), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
-    print "$pretty_response\n";
-}
+        print sprintf("Result for business \"%s\" found:\n", $business_id);
+        $pretty_response = json_encode(json_decode($response), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+        print "$pretty_response\n";
+      }
 
     public function getCategories()
     {
