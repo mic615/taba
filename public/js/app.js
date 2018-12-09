@@ -50525,243 +50525,16 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n      /* Always set the map height explicitly to define the size of the div\n       * element that contains the map. */\n#map {\n        height: 80%;\n}\n\n    ", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n      /* Always set the map height explicitly to define the size of the div\n       * element that contains the map. */\n#map {\n        height: 80%;\n}\n\n    ", ""]);
 
 // exports
 
 
 /***/ }),
 /* 85 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
-  },
-  data: function data() {
-    return {
-      coords: {
-        latitude: 0.00,
-        longitude: 0.00
-      },
-      markers: [],
-      trip: {},
-      me: {}
-    };
-  },
-  created: function created() {
-    var that = this;
-    axios.get('/api/user').then(function (data) {
-      that.me = data.data.data;
-    });
-  },
-
-  methods: {
-    analyzeTrip: function analyzeTrip(trip) {
-      var synth = window.speechSynthesis;
-      var utterThis = new SpeechSynthesisUtterance("You have a budget of " + trip.budget + '. Your trip has a duration of ' + trip.duration + 'days. Therefore you can spend ' + trip.budget / trip.duration + 'a day.');
-      synth.speak(utterThis);
-    },
-    getTrips: function getTrips() {
-      var that = this;
-      axios.get('/api/trip').then(function (data) {
-        that.trips = data.data;
-        $("#tripModal").modal();
-      });
-    },
-    addTrip: function addTrip() {
-
-      var that = this;
-      var geocoder = new google.maps.Geocoder();
-      geocoder.geocode({ 'address': this.trip.city + ',' + this.trip.state }, function (results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-
-          that.trip.lat = results[0].geometry.location.lat();
-          that.trip.long = results[0].geometry.location.lng();
-        } else {
-          alert("Something got wrong " + status);
-        }
-      });
-      axios.post('/api/trip', this.trip).then(function (data) {
-        that.me.trips.push(data.data);
-      });
-    },
-    startDiction: function startDiction() {
-      var commands = ['plan a trip', 'show me my trips', 'find an ATM', 'show my transactions', 'what is my balance'];
-      var grammar = '#JSGF V1.0; grammar colors; public <command> = ' + commands.join(' | ') + ' ;';
-      if (window.hasOwnProperty('webkitSpeechRecognition') || window.hasOwnProperty('SpeechRecognition')) {
-
-        var recognition = new webkitSpeechRecognition() || new SpeechRecognition();
-        var speechRecognitionList = new webkitSpeechGrammarList();
-        speechRecognitionList.addFromString(grammar, 1);
-        recognition.grammars = speechRecognitionList;
-        recognition.continuous = false;
-        recognition.interimResults = false;
-        console.log('Grammars', recognition.grammars);
-
-        recognition.lang = "en-US";
-        recognition.start();
-        var that = this;
-        recognition.onresult = function (e) {
-          var results = e.results[0][0].transcript;
-          recognition.stop();
-          console.log('Results', results);
-          switch (results) {
-            case 'plan a trip':
-              that.planTripModal();
-              break;
-            case 'find an ATM':
-              that.getLocation();
-              break;
-            default:
-              alert('Cannot recognize command!');
-              break;
-          }
-        };
-
-        recognition.onerror = function (e) {
-          recognition.stop();
-        };
-      }
-    },
-
-    getLocation: function getLocation() {
-      console.log('Getting location....');
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(this.showPosition);
-      } else {
-        alert('Error!');
-      }
-    },
-
-    showPosition: function showPosition(position) {
-      var map;
-      this.coords.latitude = position.coords.latitude;
-      this.coords.longitude = position.coords.longitude;
-      this.markers.push({
-        position: { lat: parseFloat(position.coords.latitude), long: parseFloat(position.coords.longitude) }
-      });
-      $("#atmModal").modal();
-    },
-    planTripModal: function planTripModal() {
-
-      $("#tripModal").modal();
-    }
-  }
-});
+throw new Error("Module build failed: SyntaxError: Unexpected token (136:16)\n\n\u001b[0m \u001b[90m 134 | \u001b[39m        methods\u001b[33m:\u001b[39m{\n \u001b[90m 135 | \u001b[39m          deleteTrip\u001b[33m:\u001b[39m \u001b[36mfunction\u001b[39m(index){\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 136 | \u001b[39m            \u001b[36mvar\u001b[39m \u001b[36mthis\u001b[39m \u001b[33m=\u001b[39m that\u001b[33m;\u001b[39m\n \u001b[90m     | \u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 137 | \u001b[39m            axios\u001b[33m.\u001b[39m\u001b[36mdelete\u001b[39m(\u001b[32m'/trip/'\u001b[39m\u001b[33m+\u001b[39mthat\u001b[33m.\u001b[39mme\u001b[33m.\u001b[39mtrips[index]\u001b[33m.\u001b[39mid)\u001b[33m.\u001b[39mthen(data \u001b[33m=>\u001b[39m{\n \u001b[90m 138 | \u001b[39m              that\u001b[33m.\u001b[39mme\u001b[33m.\u001b[39mtrips\u001b[33m.\u001b[39mslice(\u001b[35m1\u001b[39m\u001b[33m,\u001b[39mindex)\u001b[33m;\u001b[39m\n \u001b[90m 139 | \u001b[39m            })\u001b[0m\n");
 
 /***/ }),
 /* 86 */
@@ -50805,7 +50578,7 @@ var render = function() {
               _vm._v(" "),
               _c(
                 "tbody",
-                _vm._l(_vm.me.trips, function(trip) {
+                _vm._l(_vm.me.trips, function(trip, index) {
                   return _c("tr", [
                     _c("td", [_vm._v(_vm._s(trip.start_date.date))]),
                     _vm._v(" "),
@@ -50833,6 +50606,19 @@ var render = function() {
                           }
                         },
                         [_vm._v("Analyze Trip")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-sm btn-info",
+                          on: {
+                            click: function($event) {
+                              _vm.deleteTrip(index)
+                            }
+                          }
+                        },
+                        [_vm._v("Delete Trip")]
                       )
                     ])
                   ])

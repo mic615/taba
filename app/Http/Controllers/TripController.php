@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\Trip as TripResource;
 use Illuminate\Http\Request;
-
+use App\Trip;
 class TripController extends Controller
 {
     /**
@@ -48,8 +48,7 @@ class TripController extends Controller
           'city' => $request->city,
           'state' => $request->state,
           'duration' => $sd->diffInDays($ed);
-        ]
-          $request->all());
+        ]);
         return new TripResource($trip);
     }
 
@@ -96,5 +95,8 @@ class TripController extends Controller
     public function destroy($id)
     {
         //
+
+        return response()->json(Trip::destroy($id));
+
     }
 }

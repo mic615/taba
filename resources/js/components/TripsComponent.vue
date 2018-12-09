@@ -20,7 +20,7 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr v-for="trip in me.trips">
+                            <tr v-for="(trip,index) in me.trips">
                               <td>{{trip.start_date.date}}</td>
                               <td>{{trip.end_date.date}}</td>
                               <td>{{trip.budget}}</td>
@@ -30,6 +30,7 @@
                                 <button class="btn btn-xs">ATM</button>
 
                                 <button class="btn btn-sm btn-info" v-on:click="analyzeTrip(trip)">Analyze Trip</button>
+                                                                <button class="btn btn-sm btn-info" v-on:click="deleteTrip(index)">Delete Trip</button>
                               </td>
                             </tr>
                           </tbody>
@@ -131,6 +132,12 @@
           })
         },
         methods:{
+          deleteTrip: function(index){
+            var this = that;
+            axios.delete('/trip/'+that.me.trips[index].id).then(data =>{
+              that.me.trips.slice(1,index);
+            })
+          },
           analyzeTrip: function(trip){
             var synth = window.speechSynthesis;
             var utterThis = new SpeechSynthesisUtterance("You have a budget of " + trip.budget+ '. Your trip has a duration of '+ trip.duration+ 'days. Therefore you can spend '+ trip.budget/trip.duration + 'a day.');
