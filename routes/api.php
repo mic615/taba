@@ -21,6 +21,6 @@ Route::post('/token', 'ApiController@authenticate');
 Route::get('/categories', 'ApiController@getCategories');
 Route::get('/merchants', 'ApiController@getAllMerchants');
 Route::get('/merchants/{latitude}/{longitude}', 'ApiController@getMerchantsByLocation');
-Route::get('/ATMs/{latitude}/{longitude}/{radius?}', 'ApiController@getByLocation');
+Route::get('/ATMs/{latitude}/{longitude}/{radius?}', 'ApiController@getATMsByLocation');
 Route::get('/ATMs', 'ApiController@getAllATMs');
 Route::get('/offers', 'ApiController@getAllOffers');
