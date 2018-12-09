@@ -253,6 +253,9 @@
             this.markers.push({
               position:{lat:parseFloat(position.coords.latitude),long:parseFloat(position.coords.longitude)}
             });
+            axios.get('/ATMs/'+this.coords.latitude + '/' + this.coords.longitude + '/20').then(data => {
+              console.log(data.data);
+            })
             $("#atmModal").modal();
           },
           planTripModal: function(){
