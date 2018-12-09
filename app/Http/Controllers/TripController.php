@@ -11,9 +11,10 @@ class TripController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        return new TripResource::collection($request->user()->trips);
     }
 
     /**
