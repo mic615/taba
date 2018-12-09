@@ -47778,6 +47778,7 @@ var render = function() {
                       expression: "trip.start_date"
                     }
                   ],
+                  staticClass: "form-control",
                   attrs: { type: "datetime", placeholder: "Start Date" },
                   domProps: { value: _vm.trip.start_date },
                   on: {
@@ -47799,6 +47800,7 @@ var render = function() {
                       expression: "trip.end_date"
                     }
                   ],
+                  staticClass: "form-control",
                   attrs: { type: "datetime", placeholder: "End Date" },
                   domProps: { value: _vm.trip.end_date },
                   on: {
@@ -47820,6 +47822,7 @@ var render = function() {
                       expression: "trip.budget"
                     }
                   ],
+                  staticClass: "form-control",
                   attrs: { type: "number", placeholder: "Budget" },
                   domProps: { value: _vm.trip.budget },
                   on: {
@@ -47841,6 +47844,7 @@ var render = function() {
                       expression: "trip.city"
                     }
                   ],
+                  staticClass: "form-control",
                   attrs: { type: "text", placeholder: "City" },
                   domProps: { value: _vm.trip.city },
                   on: {
@@ -47862,6 +47866,7 @@ var render = function() {
                       expression: "trip.state"
                     }
                   ],
+                  staticClass: "form-control",
                   attrs: { type: "text", placeholder: "State" },
                   domProps: { value: _vm.trip.state },
                   on: {

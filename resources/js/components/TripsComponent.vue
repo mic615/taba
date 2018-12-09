@@ -24,11 +24,11 @@
               </div>
               <div class="modal-body">
                 <div class="form-group">
-                  <input type="datetime" v-model="trip.start_date" placeholder="Start Date">
-                  <input type="datetime" v-model="trip.end_date" placeholder="End Date">
-                  <input type="number" placeholder="Budget" v-model="trip.budget">
-                  <input type="text" placeholder="City" v-model="trip.city">
-                  <input type="text" placeholder="State" v-model="trip.state">
+                  <input class="form-control" type="datetime" v-model="trip.start_date" placeholder="Start Date">
+                  <input type="datetime" class="form-control" v-model="trip.end_date" placeholder="End Date">
+                  <input type="number" placeholder="Budget"  class="form-control" v-model="trip.budget">
+                  <input type="text" placeholder="City" v-model="trip.city" class="form-control">
+                  <input type="text" placeholder="State" v-model="trip.state" class="form-control">
                   <button class="btn btn-sm" v-on:click="addTrip()">Add Trip</button>
                 </div>
               </div>
