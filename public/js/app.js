@@ -50661,7 +50661,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   created: function created() {
     var that = this;
     axios.get('/api/user').then(function (data) {
-      that.me = data.data;
+      that.me = data.data.data;
     });
   },
 

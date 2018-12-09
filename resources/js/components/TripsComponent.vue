@@ -123,7 +123,7 @@
         created(){
           var that = this;
           axios.get('/api/user').then(data =>{
-            that.me = data.data;
+            that.me = data.data.data;
           })
         },
         methods:{
