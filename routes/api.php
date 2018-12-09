@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Resources\User as UserResource;
 use Illuminate\Http\Request;
 
 /*
@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+    return new UserResource($request->user());
 });
 
 Route::post('/token', 'ApiController@authenticate');
