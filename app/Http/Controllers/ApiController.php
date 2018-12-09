@@ -19,7 +19,6 @@ class ApiController extends Controller
     ]);
       echo $res->getStatusCode(); // 200
       echo $res->getBody('access_token');
-      return $res->getBody('access_token');
 
     }
 }
