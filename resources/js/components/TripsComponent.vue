@@ -6,7 +6,7 @@
                     <div class="card-header">My Trips</div>
 
                     <div class="card-body">
-                        <button class="btn btn-sm">New Trip</button>
+                        <button class="btn btn-sm" v-on:click="planTripModal()">New Trip</button>
                         <button class="btn btn-sm btn-success" v-on:click="startDiction">Speak Command</button>
                     </div>
                 </div>
