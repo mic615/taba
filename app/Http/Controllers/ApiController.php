@@ -207,7 +207,7 @@ class ApiController extends Controller
       $responseBody = json_decode((string) $res->getBody());
       $accessToken= $responseBody->access_token ;
 
-      $queryParams = '?lng=' .$longitude .'&lat=' .$latitude;
+      $queryParams = '?lat=' .$latitude .'&lng=' .$longitude;
 
       $res = $client->get( 'https://api.discover.com/dci-offers/v2/offer' .$queryParams,[
         'headers' => [
