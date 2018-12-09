@@ -25,3 +25,5 @@ Route::get('/ATMs/{latitude}/{longitude}/{radius?}', 'ApiController@getATMsByLoc
 Route::get('/ATMs', 'ApiController@getAllATMs');
 Route::get('/offers/{latitude}/{longitude}', 'ApiController@getoffersByLocation');
 Route::get('/offers', 'ApiController@getAllOffers');
+
+Route::resource('/trip','TripController');
