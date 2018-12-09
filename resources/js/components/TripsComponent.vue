@@ -26,7 +26,11 @@
                               <td>{{trip.budget}}</td>
                               <td>{{trip.city}}</td>
                               <td>{{trip.state}}</td>
-                              <td><button class="btn btn-xs">ATM</button></td>
+                              <td>
+                                <button class="btn btn-xs">ATM</button>
+
+                                <button class="btn btn-sm btn-info" v-on:click="analyzeTrip(trip)">Analyze Trip</button>
+                              </td>
                             </tr>
                           </tbody>
                         </table>
@@ -52,7 +56,6 @@
                   <input type="text" placeholder="City" v-model="trip.city" class="form-control">
                   <input type="text" placeholder="State" v-model="trip.state" class="form-control">
                   <button class="btn btn-sm" v-on:click="addTrip()">Add Trip</button>
-                  <button class="btn btn-sm btn-info" v-on:click="analyzeTrip(trip)">Analyze Trip</button>
                 </div>
               </div>
               <div class="modal-footer">
