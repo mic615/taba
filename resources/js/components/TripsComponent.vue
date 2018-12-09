@@ -144,7 +144,7 @@
               var atms = data.data;
               for(var i = 0; i < atms.length; ++i){
                 this.markers.push({
-                  position:{lat:parseFloat(atms[i].latitude),long:parseFloat(atms[i].longitude)}
+                  position:{lat:parseFloat(atms[i].latitude),lng:parseFloat(atms[i].longitude)}
                 });
               }
 
