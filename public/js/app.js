@@ -50525,16 +50525,277 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n      /* Always set the map height explicitly to define the size of the div\n       * element that contains the map. */\n#map {\n        height: 80%;\n}\n\n    ", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n      /* Always set the map height explicitly to define the size of the div\n       * element that contains the map. */\n#map {\n        height: 80%;\n}\n\n    ", ""]);
 
 // exports
 
 
 /***/ }),
 /* 85 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed: SyntaxError: Unexpected token (170:11)\n\n\u001b[0m \u001b[90m 168 | \u001b[39m\n \u001b[90m 169 | \u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 170 | \u001b[39m          }\u001b[33m,\u001b[39m\n \u001b[90m     | \u001b[39m           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 171 | \u001b[39m          showOffers\u001b[33m:\u001b[39m \u001b[36mfunction\u001b[39m(){\n \u001b[90m 172 | \u001b[39m            alert(\u001b[32m'showing offers!'\u001b[39m)\n \u001b[90m 173 | \u001b[39m          }\u001b[33m,\u001b[39m\u001b[0m\n");
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    console.log('Component mounted.');
+  },
+  data: function data() {
+    return {
+      coords: {
+        latitude: 0.00,
+        longitude: 0.00
+      },
+      markers: [],
+      trip: {},
+      me: {}
+    };
+  },
+  created: function created() {
+    var that = this;
+    axios.get('/api/user').then(function (data) {
+      that.me = data.data.data;
+    });
+  },
+
+  methods: {
+    deleteTrip: function deleteTrip(index) {
+      var that = this;
+      axios.delete('/api/trip/' + that.me.trips[index].id).then(function (data) {
+        that.me.trips.slice(1, index);
+      });
+    },
+    analyzeTrip: function analyzeTrip(trip) {
+      var synth = window.speechSynthesis;
+      var utterThis = new SpeechSynthesisUtterance("You have a budget of " + trip.budget + '. Your trip has a duration of ' + trip.duration + 'days. Therefore you can spend ' + (trip.budget / trip.duration).round(2) + 'a day. Would you like to see offers in your area?');
+      synth.speak(utterThis);
+      var commands = ['yes', 'no'];
+      var grammar = '#JSGF V1.0; grammar colors; public <command> = ' + commands.join(' | ') + ' ;';
+      if (window.hasOwnProperty('webkitSpeechRecognition') || window.hasOwnProperty('SpeechRecognition')) {
+
+        var recognition = new webkitSpeechRecognition() || new SpeechRecognition();
+        var speechRecognitionList = new webkitSpeechGrammarList();
+        speechRecognitionList.addFromString(grammar, 1);
+        recognition.grammars = speechRecognitionList;
+        recognition.continuous = false;
+        recognition.interimResults = false;
+        console.log('Grammars', recognition.grammars);
+
+        recognition.lang = "en-US";
+        recognition.start();
+        var that = this;
+        recognition.onresult = function (e) {
+          var results = e.results[0][0].transcript;
+          recognition.stop();
+          console.log('Results', results);
+          if (results == 'yes') {
+            that.showOffers();
+          }
+        };
+      }
+    },
+    showOffers: function showOffers() {
+      alert('showing offers!');
+    },
+    getTrips: function getTrips() {
+      var that = this;
+      axios.get('/api/trip').then(function (data) {
+        that.trips = data.data;
+        $("#tripModal").modal();
+      });
+    },
+    addTrip: function addTrip() {
+
+      var that = this;
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode({ 'address': this.trip.city + ',' + this.trip.state }, function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+
+          that.trip.lat = results[0].geometry.location.lat();
+          that.trip.long = results[0].geometry.location.lng();
+        } else {
+          alert("Something got wrong " + status);
+        }
+      });
+      axios.post('/api/trip', this.trip).then(function (data) {
+        that.me.trips.push(data.data);
+      });
+    },
+    startDiction: function startDiction() {
+      var commands = ['plan a trip', 'show me my trips', 'find an ATM', 'show my transactions', 'what is my balance'];
+      var grammar = '#JSGF V1.0; grammar colors; public <command> = ' + commands.join(' | ') + ' ;';
+      if (window.hasOwnProperty('webkitSpeechRecognition') || window.hasOwnProperty('SpeechRecognition')) {
+
+        var recognition = new webkitSpeechRecognition() || new SpeechRecognition();
+        var speechRecognitionList = new webkitSpeechGrammarList();
+        speechRecognitionList.addFromString(grammar, 1);
+        recognition.grammars = speechRecognitionList;
+        recognition.continuous = false;
+        recognition.interimResults = false;
+        console.log('Grammars', recognition.grammars);
+
+        recognition.lang = "en-US";
+        recognition.start();
+        var that = this;
+        recognition.onresult = function (e) {
+          var results = e.results[0][0].transcript;
+          recognition.stop();
+          console.log('Results', results);
+          switch (results) {
+            case 'plan a trip':
+              that.planTripModal();
+              break;
+            case 'find an ATM':
+              that.getLocation();
+              break;
+            default:
+              alert('Cannot recognize command!');
+              break;
+          }
+        };
+
+        recognition.onerror = function (e) {
+          recognition.stop();
+        };
+      }
+    },
+
+    getLocation: function getLocation() {
+      console.log('Getting location....');
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(this.showPosition);
+      } else {
+        alert('Error!');
+      }
+    },
+
+    showPosition: function showPosition(position) {
+      var map;
+      this.coords.latitude = position.coords.latitude;
+      this.coords.longitude = position.coords.longitude;
+      this.markers.push({
+        position: { lat: parseFloat(position.coords.latitude), long: parseFloat(position.coords.longitude) }
+      });
+      $("#atmModal").modal();
+    },
+    planTripModal: function planTripModal() {
+
+      $("#tripModal").modal();
+    }
+  }
+});
 
 /***/ }),
 /* 86 */

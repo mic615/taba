@@ -167,9 +167,10 @@
               }
 
 
-          },
+          }
+        },
           showOffers: function(){
-            alert('showing offers!')
+            alert('showing offers!');
           },
           getTrips: function(){
             var that = this;
