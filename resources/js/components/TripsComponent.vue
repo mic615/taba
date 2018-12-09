@@ -94,7 +94,7 @@
             longitude: 0.00,
           },
           markers: [],
-          budget: {}
+          trip:{}
           }
         },
         methods:{

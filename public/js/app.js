@@ -47657,7 +47657,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         longitude: 0.00
       },
       markers: [],
-      budget: {}
+      trip: {}
     };
   },
 
