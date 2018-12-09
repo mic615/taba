@@ -20,7 +20,7 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr v-for="(trip,index) in me.trips">
+                            <tr v-for="trip in me.trips">
                               <td>{{trip.start_date.date}}</td>
                               <td>{{trip.end_date.date}}</td>
                               <td>{{trip.budget}}</td>
@@ -31,7 +31,7 @@
 
                                 <button class="btn btn-sm btn-info" v-on:click="analyzeTrip(trip)">Analyze Trip</button>
                                 <button class="btn btn-sm btn-info" v-on:click="getOffers(trip)">Show Offers</button>
-                                <button class="btn btn-sm btn-danger" v-on:click="deleteTrip(index)">Delete Trip</button>
+                                <button class="btn btn-sm btn-danger" v-on:click="deleteTrip(trip)">Delete Trip</button>
                               </td>
                             </tr>
                           </tbody>
@@ -99,6 +99,41 @@
 
                 </GmapMap>
               </p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Modal -->
+        <div id="offerModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Offers</h4>
+              </div>
+              <div class="modal-body">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Offer</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="offer in me.offers">
+
+                      <td>{{offer}}</td>
+                    
+                    </tr>
+                  </tbody>
+                </table>
+
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

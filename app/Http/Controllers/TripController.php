@@ -36,8 +36,6 @@ class TripController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        dd($request->all());
         $sd = new \Carbon\Carbon($request->start_date);
         $ed = new \Carbon\Carbon($request->end_date);
         $trip = $request->user()->trips()->create([
