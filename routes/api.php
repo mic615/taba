@@ -25,5 +25,5 @@ Route::get('/ATMs/{latitude}/{longitude}/{radius?}', 'ApiController@getATMsByLoc
 Route::get('/ATMs', 'ApiController@getAllATMs');
 Route::get('/offers/{latitude}/{longitude}', 'ApiController@getoffersByLocation');
 Route::get('/offers', 'ApiController@getAllOffers');
-Route::get('/yelp', 'ApiController@testYelp');
+Route::get('/testYelp', 'ApiController@testYelp');
 Route::resource('/trip','TripController')->middleware('auth:api');

@@ -6,14 +6,7 @@ use Illuminate\Http\Request;
 $API_KEY = NULL;
 // Complain if credentials haven't been filled out.
 assert($API_KEY, env('YELP_KEY'));
-// API constants, you shouldn't have to change these.
-$API_HOST = "https://api.yelp.com";
-$SEARCH_PATH = "/v3/businesses/search";
-$BUSINESS_PATH = "/v3/businesses/";  // Business ID will come after slash.
-// Defaults for our simple example.
-$DEFAULT_TERM = "dinner";
-$DEFAULT_LOCATION = "San Francisco, CA";
-$SEARCH_LIMIT = 3;
+
 
 class ApiController extends Controller
 {
@@ -42,7 +35,7 @@ class ApiController extends Controller
       // API key placeholders that must be filled in by users.
       // You can find it on
       // https://www.yelp.com/developers/v3/manage_app
-
+      env('YELP_KEY')
       /**
        * User input is handled here
        */
@@ -52,8 +45,8 @@ class ApiController extends Controller
       );
 
       $options = getopt("", $longopts);
-      $term = $options['term'] ?: $GLOBALS['DEFAULT_TERM'];
-      $location = $options['location'] ?: $GLOBALS['DEFAULT_LOCATION'];
+      $term = $options['term'] ?:  env('YELP_DEFAULT_TERM');
+      $location = $options['location'] ?:  env('YELP_DEFAULT_LOCATION');
       query_api($term, $location);
 
     }
@@ -82,7 +75,7 @@ class ApiController extends Controller
                   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                   CURLOPT_CUSTOMREQUEST => "GET",
                   CURLOPT_HTTPHEADER => array(
-                      "authorization: Bearer " . $GLOBALS['API_KEY'],
+                      "authorization: Bearer " .   env('YELP_API_KEY'],
                       "cache-control: no-cache",
                   ),
               ));
@@ -108,16 +101,16 @@ class ApiController extends Controller
     $SEARCH_LIMIT = 3;
     $url_params['term'] = $term;
     $url_params['location'] = $location;
-    $url_params['limit'] = $GLOBALS['SEARCH_LIMIT'];
+    $url_params['limit'] =   env('YELP_SEARCH_LIMIT'];
 
-    return request($GLOBALS['API_HOST'], $GLOBALS['SEARCH_PATH'], $url_params);
+    return request(  env('YELP_API_HOST'],  env('YELP_SEARCH_PATH'], $url_params);
   }
 
     function get_business($business_id) {
 
-    $business_path = $GLOBALS['BUSINESS_PATH'] . urlencode($business_id);
+    $business_path =   env('YELP_BUSINESS_PATH'] . urlencode($business_id);
 
-    return request($GLOBALS['API_HOST'], $business_path);
+    return request(  env('YELP_API_HOST'], $business_path);
 }
 
     function query_api($term, $location) {
