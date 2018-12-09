@@ -50672,7 +50672,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   methods: {
     analyzeTrip: function analyzeTrip(trip) {
       var synth = window.speechSynthesis;
-      var utterThis = new SpeechSynthesisUtterance("You have a budget of " + trip.budget);
+      var utterThis = new SpeechSynthesisUtterance("You have a budget of " + trip.budget + '. Your trip has a duration of ' + trip.duration + 'days. Therefore you can spend ' + trip.budget / trip.duration + 'a day.');
       synth.speak(utterThis);
     },
     getTrips: function getTrips() {
