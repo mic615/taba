@@ -50668,13 +50668,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   methods: {
     getTrips: function getTrips() {
       var that = this;
-      axios.get('https://taba.nubiawavetech.com/api/trip').then(function (data) {
+      axios.get('/api/trip').then(function (data) {
         that.trips = data.data;
       });
     },
     addTrip: function addTrip() {
       var that = this;
-      axios.post('/trip', this.trip).then(function (data) {
+      axios.post('/api/trip', this.trip).then(function (data) {
         that.trips.push(data.data);
       });
     },

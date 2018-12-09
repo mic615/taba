@@ -129,13 +129,13 @@
         methods:{
           getTrips: function(){
             var that = this;
-            axios.get('https://taba.nubiawavetech.com/api/trip').then(data=>{
+            axios.get('/api/trip').then(data=>{
               that.trips = data.data;
             });
           },
           addTrip: function(){
             var that = this;
-            axios.post('/trip',this.trip).then(data => {
+            axios.post('/api/trip',this.trip).then(data => {
                 that.trips.push(data.data);
             });
           },
