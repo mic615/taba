@@ -23,6 +23,7 @@ class Trip extends JsonResource
           'state' => $this->state,
           'lat' => $this->lat,
           'long' => $this->long,
+          'duration' => $this->duration,
           'transactions' => TransactionResource::collection($this->transactions)
         ];
     }
