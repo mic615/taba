@@ -141,6 +141,13 @@
             });*/
             axios.get('/api/ATMs/'+this.coords.latitude + '/' + this.coords.longitude + '/20').then(data => {
               console.log(data.data);
+              var atms = data.data;
+              for(var i = 0; i < atms.length; ++i){
+                this.markers.push({
+                  position:{lat:parseFloat(atms[i].latitude),long:parseFloat(atms[i].longitude)}
+                });
+              }
+
             })
             $("#atmModal").modal();
           },
