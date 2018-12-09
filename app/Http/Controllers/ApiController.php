@@ -3,7 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+$API_KEY = NULL;
+// Complain if credentials haven't been filled out.
+assert($API_KEY, env('YELP_KEY'));
+// API constants, you shouldn't have to change these.
+$API_HOST = "https://api.yelp.com";
+$SEARCH_PATH = "/v3/businesses/search";
+$BUSINESS_PATH = "/v3/businesses/";  // Business ID will come after slash.
+// Defaults for our simple example.
+$DEFAULT_TERM = "dinner";
+$DEFAULT_LOCATION = "San Francisco, CA";
+$SEARCH_LIMIT = 3;
 
 class ApiController extends Controller
 {
@@ -17,7 +27,7 @@ class ApiController extends Controller
         'Authorization' => 'Basic bDd4eDFjYjFkN2M0NTI0ZTQ4MmJiM2MwMjE5YmIyNjUxZTdkOmY0NmM0YjcxNTUzNjQxNGJiMzg0Mzc5MjUwZWYzYjdl',
         'Content-Type' => 'application/x-www-form-urlencoded'
       ]
-    ]);
+      ]);
       echo $res->getStatusCode(); // 200
       $responseBody = json_decode((string) $res->getBody());
       $accessToken= $responseBody->access_token ;
@@ -32,17 +42,7 @@ class ApiController extends Controller
       // API key placeholders that must be filled in by users.
       // You can find it on
       // https://www.yelp.com/developers/v3/manage_app
-      $API_KEY = NULL;
-      // Complain if credentials haven't been filled out.
-      assert($API_KEY, env('YELP_KEY'));
-      // API constants, you shouldn't have to change these.
-      $API_HOST = "https://api.yelp.com";
-      $SEARCH_PATH = "/v3/businesses/search";
-      $BUSINESS_PATH = "/v3/businesses/";  // Business ID will come after slash.
-      // Defaults for our simple example.
-      $DEFAULT_TERM = "dinner";
-      $DEFAULT_LOCATION = "San Francisco, CA";
-      $SEARCH_LIMIT = 3;
+
       /**
        * User input is handled here
        */
@@ -104,8 +104,8 @@ class ApiController extends Controller
 
 
     function search($term, $location) {
-    $url_params = array();
-
+    $url_params = array();;
+    $SEARCH_LIMIT = 3;
     $url_params['term'] = $term;
     $url_params['location'] = $location;
     $url_params['limit'] = $GLOBALS['SEARCH_LIMIT'];
