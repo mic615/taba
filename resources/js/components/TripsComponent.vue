@@ -141,7 +141,7 @@
           analyzeTrip: function(trip){
             var budget = trip.budget/trip.duration
             var synth = window.speechSynthesis;
-            var utterThis = new SpeechSynthesisUtterance("You have a budget of " + trip.budget+ '. Your trip has a duration of '+ trip.duration+ 'days. Therefore you can spend '+ budget.round(2) + 'a day. Would you like to see offers in your area?');
+            var utterThis = new SpeechSynthesisUtterance("You have a budget of " + trip.budget+ '. Your trip has a duration of '+ trip.duration+ 'days. Therefore you can spend '+ budget.toFixed(2) + 'a day. Would you like to see offers in your area?');
             synth.speak(utterThis);
             var commands = [ 'yes','no'];
             var grammar = '#JSGF V1.0; grammar colors; public <command> = ' + commands.join(' | ') + ' ;'
