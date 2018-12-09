@@ -134,7 +134,10 @@
             });
           },
           addTrip: function(){
-            console.log('add trip');
+            var that = this;
+            axios.post('/trip',this.trip).then(data => {
+                that.trips.push(data.data);
+            });
           },
           startDiction: function(){
             var commands = [ 'plan a trip' , 'show me my trips' , 'find an ATM', 'show my transactions', 'what is my balance'];

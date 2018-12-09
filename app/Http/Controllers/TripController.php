@@ -37,6 +37,8 @@ class TripController extends Controller
     public function store(Request $request)
     {
         //
+        $trip = $request->user()->trips()->create($request->all());
+        return new TripResource($trip);
     }
 
     /**
