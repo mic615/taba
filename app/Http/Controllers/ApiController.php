@@ -29,7 +29,8 @@ class ApiController extends Controller
       return $accessToken;
 
 
-    },
+    }
+    
     public function getCategories()
     {
       $client = new \GuzzleHttp\Client();
