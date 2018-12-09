@@ -48,7 +48,7 @@ class ApiController extends Controller
       'headers' => [
         'Accept' => ' application/json',
         'x-dfs-api-plan' => 'CITYGUIDES_SANDBOX',
-        'Authorization'=> 'Bearer' .$accessToken,
+        'Authorization'=> 'Bearer' .$accessToken
       ]
     ]);
     $responseBody = json_decode( (string) $res->getBody() );
