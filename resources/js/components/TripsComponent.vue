@@ -8,6 +8,28 @@
                     <div class="card-body">
                         <button class="btn btn-sm" v-on:click="planTripModal()">New Trip</button>
                         <button class="btn btn-sm btn-success" v-on:click="startDiction">Speak Command</button>
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th>Start Date</th>
+                              <th>End Date</th>
+                              <th>Budget</th>
+                              <th>City</th>
+                              <th>State</th>
+                              <th>Actions</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr v-for="trip in me.trips">
+                              <td>trip.start_date</td>
+                              <td>trip.end_date</td>
+                              <td>trip.budget</td>
+                              <td>trip.city</td>
+                              <td>trip.state</td>
+                              <td><button class="btn btn-xs">ATM</button></td>
+                            </tr>
+                          </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -100,7 +122,7 @@
         },
         created(){
           var that = this;
-          axios.post('/api/user').then(data =>{
+          axios.get('/api/user').then(data =>{
             that.me = data.data;
           })
         },
