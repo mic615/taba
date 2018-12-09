@@ -21,7 +21,7 @@ class Trip extends JsonResource
           'budget' => $this->budget,
           'city' => $this->city,
           'state' => $this->state,
-          'transactions' => new TransactionResource($this->transactions)
+          'transactions' => TransactionResource::collection($this->transactions)
         ];
     }
 }
