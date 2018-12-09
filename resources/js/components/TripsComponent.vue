@@ -144,7 +144,7 @@
             this.coords.latitude = position.coords.latitude;
             this.coords.longitude = position.coords.longitude;
             this.markers.push({
-              position:{lat:position.coords.latitude,long:position.coords.longitude}
+              position:{lat:parseFloat(position.coords.latitude),long:parseFloat(position.coords.longitude)}
             });
             $("#atmModal").modal();
           },
