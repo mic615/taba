@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-use App\Http\Resources\User as UserResource;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,7 +14,8 @@ use App\Http\Resources\User as UserResource;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return new UserResouce($request->user());
+    return $request->user();
 });
 
 Route::post('/token', 'ApiController@authenticate');
+Route::get('/categories', 'ApiController@getCategories');
