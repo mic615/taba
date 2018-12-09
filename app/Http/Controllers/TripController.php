@@ -15,7 +15,7 @@ class TripController extends Controller
     public function index(Request $request)
     {
         //
-        return TripResource::collection($request->user()->trips);
+        return TripResource::collection($request->user->trips);
     }
 
     /**
