@@ -30,7 +30,7 @@
                                 <button class="btn btn-xs">ATM</button>
 
                                 <button class="btn btn-sm btn-info" v-on:click="analyzeTrip(trip)">Analyze Trip</button>
-                                                                <button class="btn btn-sm btn-info" v-on:click="deleteTrip(index)">Delete Trip</button>
+                                <button class="btn btn-sm btn-danger" v-on:click="deleteTrip(index)">Delete Trip</button>
                               </td>
                             </tr>
                           </tbody>
@@ -134,7 +134,7 @@
         methods:{
           deleteTrip: function(index){
             var that = this;
-            axios.delete('/trip/'+that.me.trips[index].id).then(data =>{
+            axios.delete('/api/trip/'+that.me.trips[index].id).then(data =>{
               that.me.trips.slice(1,index);
             })
           },

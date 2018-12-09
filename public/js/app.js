@@ -50673,7 +50673,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   methods: {
     deleteTrip: function deleteTrip(index) {
       var that = this;
-      axios.delete('/trip/' + that.me.trips[index].id).then(function (data) {
+      axios.delete('/api/trip/' + that.me.trips[index].id).then(function (data) {
         that.me.trips.slice(1, index);
       });
     },
@@ -50845,7 +50845,7 @@ var render = function() {
                       _c(
                         "button",
                         {
-                          staticClass: "btn btn-sm btn-info",
+                          staticClass: "btn btn-sm btn-danger",
                           on: {
                             click: function($event) {
                               _vm.deleteTrip(index)
