@@ -50675,7 +50675,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     addTrip: function addTrip() {
       var that = this;
       axios.post('/api/trip', this.trip).then(function (data) {
-        that.trips.push(data.data);
+        that.me.trips.push(data.data);
       });
     },
     startDiction: function startDiction() {

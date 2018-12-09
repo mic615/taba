@@ -136,7 +136,7 @@
           addTrip: function(){
             var that = this;
             axios.post('/api/trip',this.trip).then(data => {
-                that.trips.push(data.data);
+                that.me.trips.push(data.data);
             });
           },
           startDiction: function(){
