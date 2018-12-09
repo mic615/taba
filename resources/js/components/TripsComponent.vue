@@ -273,10 +273,21 @@
             this.coords.latitude = position.coords.latitude;
             this.coords.longitude = position.coords.longitude;
             this.markers.push({
-              position:{lat:parseFloat(position.coords.latitude),long:parseFloat(position.coords.longitude)}
+              position:{lat:parseFloat(position.coords.latitude),lng:parseFloat(position.coords.longitude)}
             });
-            axios.get('/ATMs/'+this.coords.latitude + '/' + this.coords.longitude + '/20').then(data => {
+            axios.get('/api/ATMs/'+this.coords.latitude + '/' + this.coords.longitude + '/20').then(data => {
               console.log(data.data);
+              var atms = data.data;
+              for(var i = 0; i < atms.length; ++i){
+                this.markers.push({
+                  position:{
+                    lat:parseFloat(atms[i].latitude),
+                    lng:parseFloat(atms[i].longitude),
+                    label: atms[i].name}
+                });
+              }
+
+            })sole.log(data.data);
             })
             $("#atmModal").modal();
           },
