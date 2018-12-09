@@ -60,7 +60,7 @@ class ApiController extends Controller
               CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
               CURLOPT_CUSTOMREQUEST => "GET",
               CURLOPT_HTTPHEADER => array(
-                  "authorization: Bearer " .   env('YELP_API_KEY'],
+                  "authorization: Bearer " .   env('YELP_API_KEY'),
                   "cache-control: no-cache",
               ),
           ));
