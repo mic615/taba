@@ -13944,8 +13944,8 @@ window.Vue = __webpack_require__(36);
 
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue2_google_maps__, {
   load: {
-    key: 'AIzaSyBCO3FH3KhXknQBIfUmk3dgYGsJSou1mSE',
-    libraries: 'places' // This is required if you use the Autocomplete plugin
+    key: 'AIzaSyBCO3FH3KhXknQBIfUmk3dgYGsJSou1mSE'
+    // This is required if you use the Autocomplete plugin
     // OR: libraries: 'places,drawing'
     // OR: libraries: 'places,drawing,visualization'
     // (as you require)
