@@ -94,8 +94,15 @@
             longitude: 0.00,
           },
           markers: [],
-          trip:{}
+          trip:{},
+          me: {}
           }
+        },
+        created(){
+          var that = this;
+          axios.post('/api/user').then(data =>{
+            that.me = data.data;
+          })
         },
         methods:{
           addTrip: function(){
