@@ -213,11 +213,12 @@
 
                 that.trip.lat = results[0].geometry.location.lat();
                 that.trip.long = results[0].geometry.location.lng();
+                console.log(that.trip);
               } else {
                 alert("Something got wrong " + status);
               }
             });
-            console.log(this.trip);
+            console.log(that.trip);
             axios.post('/api/trip',this.trip).then(data => {
               console.log(data.data);
                 that.me.trips.push(data.data);
