@@ -34,7 +34,7 @@ class ApiController extends Controller
       // API key placeholders that must be filled in by users.
       // You can find it on
       // https://www.yelp.com/developers/v3/manage_app
-      env('YELP_KEY');
+      env('YELP_KEY')
       /**
        * User input is handled here
        */
@@ -60,7 +60,7 @@ class ApiController extends Controller
               CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
               CURLOPT_CUSTOMREQUEST => "GET",
               CURLOPT_HTTPHEADER => array(
-                  "authorization: Bearer " .   env('YELP_API_KEY'),
+                  "authorization: Bearer " .   env('YELP_API_KEY'],
                   "cache-control: no-cache",
               ),
           ));
@@ -85,16 +85,16 @@ class ApiController extends Controller
       $SEARCH_LIMIT = 3;
       $url_params['term'] = $term;
       $url_params['location'] = $location;
-      $url_params['limit'] =   env('YELP_SEARCH_LIMIT');
+      $url_params['limit'] =   env('YELP_SEARCH_LIMIT'];
 
-      return request(  env('YELP_API_HOST'),  env('YELP_SEARCH_PATH'), $url_params);
+      return request(  env('YELP_API_HOST'],  env('YELP_SEARCH_PATH'], $url_params);
     }
 
     public function get_business($business_id) {
 
-      $business_path =   env('YELP_BUSINESS_PATH') . urlencode($business_id);
+      $business_path =   env('YELP_BUSINESS_PATH'] . urlencode($business_id);
 
-      return request(  env('YELP_API_HOST'), $business_path);
+      return request(  env('YELP_API_HOST'], $business_path);
     }
 
     public function query_api($term, $location) {
@@ -154,7 +154,6 @@ class ApiController extends Controller
       $responseBody = json_decode((string) $res->getBody());
       $accessToken= $responseBody->access_token ;
 
-
       $res = $client->get( 'https://api.discover.com/cityguides/v2/merchants?card_network=DCI&has_privileges=false&sortby=name&sortdir=asc',[
         'headers' => [
           'Accept' => ' application/json',
@@ -168,7 +167,7 @@ class ApiController extends Controller
       }
     }
 
-    public function getMerchantsByLocation()
+    public function getMerchants($city, $category)
     {
       $client = new \GuzzleHttp\Client();
       try{
@@ -182,14 +181,17 @@ class ApiController extends Controller
       $responseBody = json_decode((string) $res->getBody());
       $accessToken= $responseBody->access_token ;
 
+      $queryParams = '?' . urlencode('card_network') . '=' . urlencode('DCI') . '&' . urlencode('merchant_city') .
+      '=' . urlencode($city) . '&' . urlencode('merchant_category') . '=' . urlencode($category) . '&' . urlencode('has_privileges')
+      . '=' . urlencode('false') . '&' . urlencode('sortby') . '=' . urlencode('name') . '&' . urlencode('sortdir') . '=' . urlencode('asc');
 
-      $res = $client->get( 'https://api.discover.com/cityguides/v2/merchants?card_network=DCI&has_privileges=false&sortby=name&sortdir=asc',[
+      $res = $client->get( 'https://api.discover.com/cityguides/v2/merchants' .$queryParams,[
         'headers' => [
-          'Accept' => ' application/json',
+          'Accept' => 'application/json',
           'Authorization'=> 'Bearer ' .$accessToken,
-          'x-dfs-api-plan' => 'CITYGUIDES_SANDBOX'
+          'x-dfs-api-plan' => 'DCIOFFERS_SANDBOX'
         ]
-      ]);
+      
       echo $res->getBody();
       }catch (GuzzleHttp\Exception\BadResponseException $e) {
           echo "Unable to retrieve access token.";
