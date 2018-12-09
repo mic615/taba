@@ -50525,7 +50525,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n      /* Always set the map height explicitly to define the size of the div\n       * element that contains the map. */\n#map {\n        height: 80%;\n}\n\n    ", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n      /* Always set the map height explicitly to define the size of the div\n       * element that contains the map. */\n#map {\n        height: 80%;\n}\n\n    ", ""]);
 
 // exports
 
@@ -50678,8 +50678,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       });
     },
     analyzeTrip: function analyzeTrip(trip) {
+      var budget = trip.budget / trip.duration;
       var synth = window.speechSynthesis;
-      var utterThis = new SpeechSynthesisUtterance("You have a budget of " + trip.budget + '. Your trip has a duration of ' + trip.duration + 'days. Therefore you can spend ' + (trip.budget / trip.duration).round(2) + 'a day. Would you like to see offers in your area?');
+      var utterThis = new SpeechSynthesisUtterance("You have a budget of " + trip.budget + '. Your trip has a duration of ' + trip.duration + 'days. Therefore you can spend ' + budget.round(2) + 'a day. Would you like to see offers in your area?');
       synth.speak(utterThis);
       var commands = ['yes', 'no'];
       var grammar = '#JSGF V1.0; grammar colors; public <command> = ' + commands.join(' | ') + ' ;';
