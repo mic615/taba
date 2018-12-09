@@ -47,7 +47,7 @@ class TripController extends Controller
           'budget' => $request->budget,
           'city' => $request->city,
           'state' => $request->state,
-          'duration' => $sd->diffInDays($ed);
+          'duration' => $sd->diffInDays($ed)
         ]);
         return new TripResource($trip);
     }
