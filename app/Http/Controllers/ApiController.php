@@ -85,7 +85,7 @@ class ApiController extends Controller
       $SEARCH_LIMIT = 3;
       $url_params['term'] = $term;
       $url_params['location'] = $location;
-      $url_params['limit'] =   env('YELP_SEARCH_LIMIT'];
+      $url_params['limit'] =   env('YELP_SEARCH_LIMIT');
 
       return request(  env('YELP_API_HOST'],  env('YELP_SEARCH_PATH'], $url_params);
     }
