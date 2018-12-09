@@ -283,11 +283,11 @@
                   position:{
                     lat:parseFloat(atms[i].latitude),
                     lng:parseFloat(atms[i].longitude),
-                    label: atms[i].name}
+                    label: atms[i].name
+                  }
                 });
               }
 
-            })sole.log(data.data);
             })
             $("#atmModal").modal();
           },
