@@ -100,7 +100,7 @@
         },
         created(){
           var that = this;
-          axios.post('/api/user').then(data =>{
+          axios.get('/api/user').then(data =>{
             that.me = data.data;
           })
         },
