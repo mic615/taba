@@ -216,6 +216,7 @@
               }
             });
             axios.post('/api/trip',this.trip).then(data => {
+              console.log(data.data);
                 that.me.trips.push(data.data);
             });
           },
