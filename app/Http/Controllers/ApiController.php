@@ -51,8 +51,7 @@ class ApiController extends Controller
         'x-dfs-api-plan' => 'CITYGUIDES_SANDBOX'
       ]
     ]);
-    $responseBody = json_decode( (string) $res->getBody() );
-    echo $responseBody;
+    echo $res->getBody();
     }catch (GuzzleHttp\Exception\BadResponseException $e) {
         echo "Unable to retrieve access token.";
 
