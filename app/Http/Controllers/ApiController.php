@@ -87,14 +87,14 @@ class ApiController extends Controller
       $url_params['location'] = $location;
       $url_params['limit'] =   env('YELP_SEARCH_LIMIT');
 
-      return request(  env('YELP_API_HOST'],  env('YELP_SEARCH_PATH'], $url_params);
+      return request(  env('YELP_API_HOST'),  env('YELP_SEARCH_PATH'], $url_params);
     }
 
     public function get_business($business_id) {
 
       $business_path =   env('YELP_BUSINESS_PATH'] . urlencode($business_id);
 
-      return request(  env('YELP_API_HOST'], $business_path);
+      return request(  env('YELP_API_HOST'), $business_path);
     }
 
     public function query_api($term, $location) {
