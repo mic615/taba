@@ -8,7 +8,7 @@ class Trip extends Model
 {
     //
     public $fillable = ['start_date','end_date','budget','city','state'];
-
+    public $dates = ['start_date','end_date'];
     public function user(){
       return $this->belongsTo('App\User');
     }
