@@ -193,4 +193,33 @@ class ApiController extends Controller
       }
     }
 
+    public function getOffersByLocation($latitude, $longitude)
+    {
+      $client = new \GuzzleHttp\Client();
+      try{
+        $res = $client->post('https://apis.discover.com/auth/oauth/v2/token?grant_type=client_credentials&scope=CITYGUIDES DCIOFFERS DCIOFFERS_POST DCILOUNGES DCILOUNGES_POST
+        DCILOUNGES_PROVIDER_LG DCILOUNGES_PROVIDER_DCIPL DCI_ATM DCI_CURRENCYCONVERSION DCI_CUSTOMERSERVICE DCI_TIP',[
+        'headers' => [
+          'Authorization' => 'Basic bDd4eDFjYjFkN2M0NTI0ZTQ4MmJiM2MwMjE5YmIyNjUxZTdkOmY0NmM0YjcxNTUzNjQxNGJiMzg0Mzc5MjUwZWYzYjdl',
+          'Content-Type' => 'application/x-www-form-urlencoded'
+        ]
+      ]);
+      $responseBody = json_decode((string) $res->getBody());
+      $accessToken= $responseBody->access_token ;
+
+      $queryParams = '?lng=' .$longitude .'&lat=' .$latitude;
+
+      $res = $client->get( 'https://api.discover.com/dci-offers/v2/offer' .$queryParams,[
+        'headers' => [
+          'Accept' => 'application/json',
+          'Authorization'=> 'Bearer ' .$accessToken,
+          'x-dfs-api-plan' => 'DCIOFFERS_SANDBOX'
+        ]
+      ]);
+      echo $res->getBody();
+      }catch (GuzzleHttp\Exception\BadResponseException $e) {
+          echo "Unable to retrieve access token.";
+      }
+    }
+
 }
