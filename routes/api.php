@@ -23,5 +23,5 @@ Route::get('/merchants', 'ApiController@getAllMerchants');
 Route::get('/merchants/{latitude}/{longitude}', 'ApiController@getMerchantsByLocation');
 Route::get('/ATMs/{latitude}/{longitude}/{radius?}', 'ApiController@getATMsByLocation');
 Route::get('/ATMs', 'ApiController@getAllATMs');
-Route::get('/offers/{latitude}/{longitude}/{radius?}', 'ApiController@getoffersByLocation');
+Route::get('/offers/{latitude}/{longitude}', 'ApiController@getoffersByLocation');
 Route::get('/offers', 'ApiController@getAllOffers');
