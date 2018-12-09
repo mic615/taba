@@ -38,7 +38,7 @@ class TripController extends Controller
     {
         //
         $sd = new \Carbon\Carbon($request->start_date);
-        $ed = new \Carbob\Carbon($request->end_date);
+        $ed = new \Carbon\Carbon($request->end_date);
         $trip = $request->user()->trips()->create([
           'start_date' => $sd,
           'end_date' => $ed,
