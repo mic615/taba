@@ -135,7 +135,7 @@
           deleteTrip: function(index){
             var that = this;
             axios.delete('/api/trip/'+that.me.trips[index].id).then(data =>{
-              that.me.trips.slice(1,index);
+              that.me.trips.splice(1,index);
             })
           },
           analyzeTrip: function(trip){

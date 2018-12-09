@@ -50674,7 +50674,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     deleteTrip: function deleteTrip(index) {
       var that = this;
       axios.delete('/api/trip/' + that.me.trips[index].id).then(function (data) {
-        that.me.trips.slice(1, index);
+        that.me.trips.splice(1, index);
       });
     },
     analyzeTrip: function analyzeTrip(trip) {
