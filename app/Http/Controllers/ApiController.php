@@ -13,12 +13,30 @@ class ApiController extends Controller
       $res = $client->post('https://apis.discover.com/auth/oauth/v2/token?grant_type=client_credentials&scope=CITYGUIDES DCIOFFERS DCIOFFERS_POST DCILOUNGES DCILOUNGES_POST
       DCILOUNGES_PROVIDER_LG DCILOUNGES_PROVIDER_DCIPL DCI_ATM DCI_CURRENCYCONVERSION DCI_CUSTOMERSERVICE DCI_TIP',[
       'headers' => [
-      'Authorization' => 'Basic bDd4eDFjYjFkN2M0NTI0ZTQ4MmJiM2MwMjE5YmIyNjUxZTdkOmY0NmM0YjcxNTUzNjQxNGJiMzg0Mzc5MjUwZWYzYjdl',
-      'Content-Type' => 'application/x-www-form-urlencoded'
+        'Authorization' => 'Basic bDd4eDFjYjFkN2M0NTI0ZTQ4MmJiM2MwMjE5YmIyNjUxZTdkOmY0NmM0YjcxNTUzNjQxNGJiMzg0Mzc5MjUwZWYzYjdl',
+        'Content-Type' => 'application/x-www-form-urlencoded'
       ]
     ]);
       echo $res->getStatusCode(); // 200
-      echo $res->getBody('access_token');
+      $responseBody = json_decode($res->getBody());
+      $accessToken= $responseBody->{'access_token'};
+      echo $accessToken
+      return $accessToken;
+
+
+    },
+    public function getCategories()
+    {
+      $client = new \GuzzleHttp\Client();
+      $res = $client->get( 'https://api.discover.com/cityguides/v2/categories',[
+      'headers' => [
+        'Accept' => ' application/json',
+        'x-dfs-api-plan' => 'CITYGUIDES_SANDBOX',
+        'Authorization'=> 'Bearer ded6dff8-c153-4262-9948-ecd9b93a2e8d'
+      ]
+    ]);
 
     }
+
+
 }
