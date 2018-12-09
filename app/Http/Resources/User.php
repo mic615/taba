@@ -19,7 +19,7 @@ class User extends JsonResource
           'id' => $this->id,
           'email' => $this->email,
           'name' => $this->name,
-          'trips' => new TripResource::collection($this->trips)
+          'trips' => TripResource::collection($this->trips)
         ];
     }
 }
