@@ -23,7 +23,14 @@
                 <h4 class="modal-title">Plan A New Trip</h4>
               </div>
               <div class="modal-body">
-                <p>Some text in the modal.</p>
+                <div class="form-group">
+                  <input type="datetime" v-model="trip.start_date" placeholder="Start Date">
+                  <input type="datetime" v-model="trip.end_date" placeholder="End Date">
+                  <input type="number" placeholder="Budget" v-model="trip.budget">
+                  <input type="text" placeholder="City" v-model="trip.city">
+                  <input type="text" placeholder="State" v-model="trip.state">
+                  <button class="btn btn-sm" v-on:click="addTrip()">Add Trip</button>
+                </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -86,10 +93,14 @@
             latitude: 0.00,
             longitude: 0.00,
           },
-          markers: []
+          markers: [],
+          budget: {}
           }
         },
         methods:{
+          addTrip: function(){
+            console.log('add trip');
+          },
           startDiction: function(){
             var commands = [ 'plan a trip' , 'show me my trips' , 'find an ATM', 'show my transactions', 'what is my balance'];
             var grammar = '#JSGF V1.0; grammar colors; public <command> = ' + commands.join(' | ') + ' ;'
