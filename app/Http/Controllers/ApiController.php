@@ -209,7 +209,7 @@ class ApiController extends Controller
       $queryParams = '?' . urlencode('lat') . '=' . urlencode($latitude) . '&' . urlencode('lng') . '=' . urlencode($longitude) . '&'
       . urlencode('radius') . '=' . urlencode('20') . '&'
       . urlencode('lang') . '=' . urlencode('en') . '&' . urlencode('sortdir') . '=' . urlencode('asc');
-      $res = $client->get( 'https://apis.discover.com/dci-offers/v2/offer' .$queryParams,[
+      $res = $client->get( 'https://api.discover.com/dci-offers/v2/offers' .$queryParams,[
         'headers' => [
           'Accept' => 'application/json',
           'Authorization'=> 'Bearer ' .$accessToken,
