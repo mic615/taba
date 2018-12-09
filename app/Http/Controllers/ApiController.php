@@ -95,7 +95,7 @@ class ApiController extends Controller
       $accessToken= $responseBody->access_token ;
 
 
-      $res = $client->get( 'https://api.discover.com/dci/atm/v1/locations?radius=50&longitude=37.7749&latitude=122.3321',[
+      $res = $client->get( 'https://api.discover.com/dci/atm/v1/locations?radius=50&longitude=-122.3321&latitude=37.7749',[
         'headers' => [
           'Accept' => ' application/json',
           'Authorization'=> 'Bearer ' .$accessToken,
