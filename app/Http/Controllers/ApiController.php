@@ -150,7 +150,7 @@ class ApiController extends Controller
       $responseBody = json_decode((string) $res->getBody());
       $accessToken= $responseBody->access_token ;
 
-      $queryParams = '?' . urlencode('radius') . '=' . urlencode('50') . '&' . urlencode('longitude') . '=' . urlencode($longitude) . '&' . urlencode('latitude') . '=' . urlencode($latitude);
+      $queryParams = '?radius=50&longitude=' .$longitude .'&latitude=' .$latitude;
 
       $res = $client->get( 'https://api.discover.com/dci/atm/v1/locations' .$queryParams,[
         'headers' => [
@@ -164,7 +164,7 @@ class ApiController extends Controller
           echo "Unable to retrieve access token.";
       }
     }
-  
+
     public function getAllOffers()
     {
       $client = new \GuzzleHttp\Client();
