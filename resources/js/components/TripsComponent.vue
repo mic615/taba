@@ -21,8 +21,8 @@
                           </thead>
                           <tbody>
                             <tr v-for="trip in me.trips">
-                              <td>{{trip.start_date}}</td>
-                              <td>{{trip.end_date}}</td>
+                              <td>{{trip.start_date.date}}</td>
+                              <td>{{trip.end_date.date}}</td>
                               <td>{{trip.budget}}</td>
                               <td>{{trip.city}}</td>
                               <td>{{trip.state}}</td>

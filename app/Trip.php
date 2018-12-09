@@ -9,6 +9,7 @@ class Trip extends Model
     //
     public $fillable = ['start_date','end_date','budget','city','state'];
     public $dates = ['start_date','end_date'];
+    protected $dateFormat = 'dd/mm/yyyy';
     public function user(){
       return $this->belongsTo('App\User');
     }

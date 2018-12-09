@@ -50786,9 +50786,9 @@ var render = function() {
                 "tbody",
                 _vm._l(_vm.me.trips, function(trip) {
                   return _c("tr", [
-                    _c("td", [_vm._v(_vm._s(trip.start_date))]),
+                    _c("td", [_vm._v(_vm._s(trip.start_date.date))]),
                     _vm._v(" "),
-                    _c("td", [_vm._v(_vm._s(trip.end_date))]),
+                    _c("td", [_vm._v(_vm._s(trip.end_date.date))]),
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(trip.budget))]),
                     _vm._v(" "),
