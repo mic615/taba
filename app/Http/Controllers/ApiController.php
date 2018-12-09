@@ -18,8 +18,13 @@ class ApiController extends Controller
       ]
     ]);
       echo $res->getStatusCode(); // 200
-      $responseBody = json_decode($res->getBody());
-      $accessToken= $responseBody->{'access_token'};
+      $responseBody = json_decode((string) $res->getBody());
+    //   $response = $client->get('http://todos.dev/api/todos', [
+    //     'headers' => [
+    //         'Authorization' => 'Bearer '.$auth->access_token,
+    //     ]
+    // ]);
+      $accessToken= $responseBody->access_token ;
       echo $accessToken
       return $accessToken;
 
