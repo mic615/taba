@@ -47,7 +47,7 @@ class ApiController extends Controller
       $res = $client->get( 'https://api.discover.com/cityguides/v2/categories',[
       'headers' => [
         'Accept' => ' application/json',
-        'Authorization'=> 'Bearer' .$accessToken,
+        'Authorization'=> 'Bearer ' .$accessToken,
         'x-dfs-api-plan' => 'CITYGUIDES_SANDBOX'
       ]
     ]);
