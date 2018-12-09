@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/token', 'ApiController@authenticate');
 Route::get('/categories', 'ApiController@getCategories');
+Route::get('/merchants', 'ApiController@getAllMerchants');

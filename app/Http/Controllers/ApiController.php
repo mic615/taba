@@ -19,11 +19,6 @@ class ApiController extends Controller
     ]);
       echo $res->getStatusCode(); // 200
       $responseBody = json_decode((string) $res->getBody());
-    //   $response = $client->get('http://todos.dev/api/todos', [
-    //     'headers' => [
-    //         'Authorization' => 'Bearer '.$auth->access_token,
-    //     ]
-    // ]);
       $accessToken= $responseBody->access_token ;
       echo $accessToken;
       return $accessToken;
@@ -45,21 +40,43 @@ class ApiController extends Controller
       $responseBody = json_decode((string) $res->getBody());
       $accessToken= $responseBody->access_token ;
       $res = $client->get( 'https://api.discover.com/cityguides/v2/categories',[
-      'headers' => [
-        'Accept' => ' application/json',
-        'Authorization'=> 'Bearer ' .$accessToken,
-        'x-dfs-api-plan' => 'CITYGUIDES_SANDBOX'
-      ]
-    ]);
-    echo $res->getBody();
-    }catch (GuzzleHttp\Exception\BadResponseException $e) {
-        echo "Unable to retrieve access token.";
-
+        'headers' => [
+          'Accept' => ' application/json',
+          'Authorization'=> 'Bearer ' .$accessToken,
+          'x-dfs-api-plan' => 'CITYGUIDES_SANDBOX'
+        ]
+      ]);
+      echo $res->getBody();
+      }catch (GuzzleHttp\Exception\BadResponseException $e) {
+          echo "Unable to retrieve access token.";
+      }
     }
 
+    public function getAllMerchants()
+    {
+      $client = new \GuzzleHttp\Client();
+      try{
+        $res = $client->post('https://apis.discover.com/auth/oauth/v2/token?grant_type=client_credentials&scope=CITYGUIDES DCIOFFERS DCIOFFERS_POST DCILOUNGES DCILOUNGES_POST
+        DCILOUNGES_PROVIDER_LG DCILOUNGES_PROVIDER_DCIPL DCI_ATM DCI_CURRENCYCONVERSION DCI_CUSTOMERSERVICE DCI_TIP',[
+        'headers' => [
+          'Authorization' => 'Basic bDd4eDFjYjFkN2M0NTI0ZTQ4MmJiM2MwMjE5YmIyNjUxZTdkOmY0NmM0YjcxNTUzNjQxNGJiMzg0Mzc5MjUwZWYzYjdl',
+          'Content-Type' => 'application/x-www-form-urlencoded'
+        ]
+      ]);
+      $responseBody = json_decode((string) $res->getBody());
+      $accessToken= $responseBody->access_token ;
 
 
+      $res = $client->get( 'https://api.discover.com/cityguides/v2/merchants?card_network=DCI&has_privileges=false&sortby=name&sortdir=asc',[
+        'headers' => [
+          'Accept' => ' application/json',
+          'Authorization'=> 'Bearer ' .$accessToken,
+          'x-dfs-api-plan' => 'CITYGUIDES_SANDBOX'
+        ]
+      ]);
+      echo $res->getBody();
+      }catch (GuzzleHttp\Exception\BadResponseException $e) {
+          echo "Unable to retrieve access token.";
+      }
     }
-
-
 }
