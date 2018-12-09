@@ -30,6 +30,7 @@
                                 <button class="btn btn-xs" v-on:click="getAtms(trip)">ATM</button>
 
                                 <button class="btn btn-sm btn-info" v-on:click="analyzeTrip(trip)">Analyze Trip</button>
+                                <button class="btn btn-sm btn-info" v-on:click="getOffers(trip)">Show Offers</button>
                                 <button class="btn btn-sm btn-danger" v-on:click="deleteTrip(index)">Delete Trip</button>
                               </td>
                             </tr>
@@ -122,7 +123,8 @@
           },
           markers: [],
           trip:{},
-          me: {}
+          me: {},
+          offers: []
           }
         },
         created(){
@@ -215,6 +217,7 @@
                 alert("Something got wrong " + status);
               }
             });
+            console.log(this.trip);
             axios.post('/api/trip',this.trip).then(data => {
               console.log(data.data);
                 that.me.trips.push(data.data);
@@ -296,6 +299,12 @@
 
             $("#tripModal").modal();
           },
+          getOffers:function(trip){
+            var that = this;
+            axios.post('/api/offers/'+trip.lat+'/'+trip.long).then(data => {
+              that.offers = data.data;
+            })
+          }
         }
     }
 </script>
