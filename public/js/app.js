@@ -50826,7 +50826,7 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control",
-                  attrs: { type: "datetime", placeholder: "Start Date" },
+                  attrs: { type: "date", placeholder: "Start Date" },
                   domProps: { value: _vm.trip.start_date },
                   on: {
                     input: function($event) {
@@ -50848,7 +50848,7 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control",
-                  attrs: { type: "datetime", placeholder: "End Date" },
+                  attrs: { type: "date", placeholder: "End Date" },
                   domProps: { value: _vm.trip.end_date },
                   on: {
                     input: function($event) {

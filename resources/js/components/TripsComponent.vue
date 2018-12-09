@@ -46,8 +46,8 @@
               </div>
               <div class="modal-body">
                 <div class="form-group">
-                  <input class="form-control" type="datetime" v-model="trip.start_date" placeholder="Start Date">
-                  <input type="datetime" class="form-control" v-model="trip.end_date" placeholder="End Date">
+                  <input class="form-control" type="date" v-model="trip.start_date" placeholder="Start Date">
+                  <input type="date" class="form-control" v-model="trip.end_date" placeholder="End Date">
                   <input type="number" placeholder="Budget"  class="form-control" v-model="trip.budget">
                   <input type="text" placeholder="City" v-model="trip.city" class="form-control">
                   <input type="text" placeholder="State" v-model="trip.state" class="form-control">
