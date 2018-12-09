@@ -219,7 +219,7 @@
               }
             });
             console.log(that.trip);
-            axios.post('/api/trip',this.trip).then(data => {
+            axios.post('/api/trip',that.trip).then(data => {
               console.log(data.data);
                 that.me.trips.push(data.data);
             });
