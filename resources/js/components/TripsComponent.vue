@@ -140,9 +140,36 @@
           },
           analyzeTrip: function(trip){
             var synth = window.speechSynthesis;
-            var utterThis = new SpeechSynthesisUtterance("You have a budget of " + trip.budget+ '. Your trip has a duration of '+ trip.duration+ 'days. Therefore you can spend '+ trip.budget/trip.duration + 'a day.');
+            var utterThis = new SpeechSynthesisUtterance("You have a budget of " + trip.budget+ '. Your trip has a duration of '+ trip.duration+ 'days. Therefore you can spend '+ (trip.budget/trip.duration).round(2) + 'a day. Would you like to see offers in your area?');
             synth.speak(utterThis);
+            var commands = [ 'yes','no'];
+            var grammar = '#JSGF V1.0; grammar colors; public <command> = ' + commands.join(' | ') + ' ;'
+              if (window.hasOwnProperty('webkitSpeechRecognition') || window.hasOwnProperty('SpeechRecognition')) {
 
+              var recognition = new webkitSpeechRecognition() || new SpeechRecognition();
+              var speechRecognitionList =  new webkitSpeechGrammarList();
+              speechRecognitionList.addFromString(grammar, 1);
+              recognition.grammars = speechRecognitionList;
+              recognition.continuous = false;
+              recognition.interimResults = false;
+              console.log('Grammars',recognition.grammars);
+
+              recognition.lang = "en-US";
+              recognition.start();
+              var that = this;
+              recognition.onresult = function(e) {
+                var results = e.results[0][0].transcript;
+                recognition.stop();
+                console.log('Results',results);
+                if(results == 'yes'){
+                  that.showOffers();
+                }
+              }
+
+
+          },
+          showOffers: function(){
+            alert('showing offers!')
           },
           getTrips: function(){
             var that = this;
