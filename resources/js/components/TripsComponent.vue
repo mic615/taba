@@ -105,6 +105,12 @@
           })
         },
         methods:{
+          getTrips: function(){
+            var that = this;
+            axios.get('https://taba.nubiawavetech.com/api/trip').then(data=>{
+              that.trips = data.data;
+            });
+          },
           addTrip: function(){
             console.log('add trip');
           },
