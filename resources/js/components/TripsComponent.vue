@@ -134,7 +134,18 @@
             });
           },
           addTrip: function(){
+
             var that = this;
+            var geocoder =  new google.maps.Geocoder()
+            geocoder.geocode( { 'address': this.trip.city + ',' + this.trip.state}, function(results, status) {
+              if (status == google.maps.GeocoderStatus.OK) {
+
+                that.trip.lat = results[0].geometry.location.lat();
+                that.trip.long = results[0].geometry.location.lng();
+              } else {
+                alert("Something got wrong " + status);
+              }
+            });
             axios.post('/api/trip',this.trip).then(data => {
                 that.me.trips.push(data.data);
             });
