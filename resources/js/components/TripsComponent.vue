@@ -133,7 +133,7 @@
         },
         methods:{
           deleteTrip: function(index){
-            var this = that;
+            var that = this;
             axios.delete('/trip/'+that.me.trips[index].id).then(data =>{
               that.me.trips.slice(1,index);
             })
