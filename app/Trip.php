@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Trip extends Model
 {
     //
-    public $fillable = ['start_date','end_date','budget','city','state'];
+    public $fillable = ['start_date','end_date','budget','city','state','lat','long'];
     public $dates = ['start_date','end_date'];
     public function user(){
       return $this->belongsTo('App\User');
