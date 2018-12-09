@@ -50673,12 +50673,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   methods: {
     getAtms: function getAtms(trip) {
       var map;
-      this.coords.latitude = trip.lat;
-      this.coords.longitude = trip.long;
+      this.coords.latitude = parseFloat(trip.lat);
+      this.coords.longitude = parseFloat(trip.long);
       /*this.markers.push({
         position:{lat:parseFloat(position.coords.latitude),long:parseFloat(position.coords.longitude)}
       });*/
-      axios.get('/ATMs/' + this.coords.latitude + '/' + this.coords.longitude + '/20').then(function (data) {
+      axios.get('/api/ATMs/' + this.coords.latitude + '/' + this.coords.longitude + '/20').then(function (data) {
         console.log(data.data);
       });
       $("#atmModal").modal();
