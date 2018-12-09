@@ -34,7 +34,7 @@ class ApiController extends Controller
       // API key placeholders that must be filled in by users.
       // You can find it on
       // https://www.yelp.com/developers/v3/manage_app
-      env('YELP_KEY')
+      env('YELP_KEY');
       /**
        * User input is handled here
        */
