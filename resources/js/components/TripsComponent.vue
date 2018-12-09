@@ -27,7 +27,7 @@
                               <td>{{trip.city}}</td>
                               <td>{{trip.state}}</td>
                               <td>
-                                <button class="btn btn-xs">ATM</button>
+                                <button class="btn btn-xs" v-on:click="getAtms(trip)">ATM</button>
 
                                 <button class="btn btn-sm btn-info" v-on:click="analyzeTrip(trip)">Analyze Trip</button>
                                 <button class="btn btn-sm btn-danger" v-on:click="deleteTrip(index)">Delete Trip</button>
@@ -132,6 +132,18 @@
           })
         },
         methods:{
+          getAtms: function(trip){
+            var map;
+            this.coords.latitude = trip.lat;
+            this.coords.longitude = trip.long;
+            /*this.markers.push({
+              position:{lat:parseFloat(position.coords.latitude),long:parseFloat(position.coords.longitude)}
+            });*/
+            axios.get('/ATMs/'+this.coords.latitude + '/' + this.coords.longitude + '/20').then(data => {
+              console.log(data.data);
+            })
+            $("#atmModal").modal();
+          },
           deleteTrip: function(index){
             var that = this;
             axios.delete('/api/trip/'+that.me.trips[index].id).then(data =>{
